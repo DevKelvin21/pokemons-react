@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Layout from "./features/Layout/Layout";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pokemons: [
+        {
+          name: "pikachu",
+          order: "25",
+          image:
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png",
+          moves: [
+            "mega-punch",
+            "thunder-punch",
+            "thunder-shock",
+            "thunder-bold",
+          ],
+        },
+        {
+          name: "bulbasaur",
+          order: "1",
+          image:
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png",
+          moves: ["razor-wind", "swords-dance", "vine-whip", "solar-beam"],
+        },
+        {
+          name: "charmander",
+          order: "4",
+          image:
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png",
+          moves: ["flamethrower", "bite", "dragon-rage", "fire-spin"],
+        },
+        {
+          name: "squirtle",
+          order: "7",
+          image:
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/7.png",
+          moves: ["ice-punch", "water-gun", "hydro-pump", "surf"],
+        },
+      ],
+    };
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Layout pokemons={this.state.pokemons} />
+      </div>
+    );
+  }
 }
 
 export default App;
