@@ -15,7 +15,7 @@ class Layout extends React.Component {
     }
 
     pokemonSelected(image) {
-        const pokemonSelected = this.props.pokemons.filter(pokemon => pokemon.image.includes(image))
+        const pokemonSelected = Object.values(this.props.pokemons).filter(pokemon => pokemon.image.includes(image))
         this.setState({
             actualPokemon :pokemonSelected[0]
         })
@@ -35,7 +35,7 @@ class Layout extends React.Component {
             <div className="layoutContainer">
                 {this.props.pokemons !== undefined && (
                 <div className="cardContainer">
-                    {this.props.pokemons.map(pokemon =>{
+                    {Object.values(this.props.pokemons).map(pokemon =>{
                         return <Card onClick={this.pokemonSelected} src={pokemon.image}  alt={pokemon.name} key={pokemon.name}/>
                     })}
                 </div>
