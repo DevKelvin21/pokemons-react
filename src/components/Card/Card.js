@@ -1,15 +1,15 @@
 import React from 'react';
 import './Card.css' 
 
-const Card = (props) => {
+const Card = ({src, alt, onClick}) => {
     const handleonClick = () =>{
-        props.onClick(props.src)
+        onClick(src)
     }
 
     return(
 
         <figure className="card" onClick={handleonClick}>
-            <img src={props.src} alt={'img-'+props.alt} height="250"/>
+            <img src={src} alt={'img-'+alt} height="250"/>
         </figure>
 
     )
